@@ -1,12 +1,11 @@
 {
-  "name": "d3-geo-only",
+  "name": "karto",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-				"watch": "watchify main.js -o public/script.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "idris-maps.com",
+  "license": "GPLv2.0"
 }
