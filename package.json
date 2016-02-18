@@ -1,0 +1,12 @@
+{
+  "name": "d3-geo-only",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+				"watch": "watchify main.js -o public/script.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
