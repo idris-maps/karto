@@ -7,5 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "idris-maps.com",
-  "license": "GPLv2.0"
+  "license": "GPLv2.0",
+  "dependencies": {
+    "d3-geo": "0.0.0",
+    "idris-geojson-bbox": "^1.1.0"
+  }
 }
