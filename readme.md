@@ -1,83 +1,77 @@
 # Karto
 
-work in progress
+A library to draw static maps on ```<svg>``` or ```<canvas>``` elements.
 
-## SVG map
+## Why
 
-### Init
+Why yet another javascript library? To create maps without any other software than a text editor and a (recent) browser. It is recommended to use Node / NPM / browserify but not necessary.
+
+There are a number of libraries that let you draw maps. The best being D3. Karto uses D3's "geo" module to convert longitude-latitude coordinates to pixel coordinates. Karto offers a simple and straight forward API to create maps. It is lighter as it does not use the whole of D3. In order to do this, Karto makes a number of assumptions:
+
+* The data comes in GeoJSON
+* The projection to use is Mercator
+* You will not need animation or interaction
+
+For all other use cases, D3 is what you are looking for.
+
+## Usage
+
+### Install
+
+#### To use with browserify
+
+```
+$ npm install karto
+```
+
+And:
 
 ```
 var karto = require('karto')
-var svgMap = karto.svg(divId, width, height, bbox)
 ```
 
-- **divId**: unique id of the ```<div>``` element where the map should be
-- **width** / **height**: of the SVG
-- **bbox**: bounding box of the map [min. longitude, min. latitude, max. longitude, max. latitude]
+#### To use directly in HTML
 
-### Background color
+**--------------------------- To do ---------------------------**
 
-```
-svgMap.background(color)
-```
+Download the script [here]()
 
-- **color**: html color
-
-### Lines collection
+And include it in the HTML:
 
 ```
-var myLines = svgMap.lines(collection, style)
+<script src="karto.min.js"></script>
 ```
 
-- **collection**: a GeoJSON collection with *LineSting* and *MultiLineString* features (required)
-- **style**: SVG style of the lines (optional)
 
-#### Line labels
+## SVG or Canvas
 
-```
-var myLinesLabels = myLines.addLabels(property, style, uppercase)
-```
+The APIs are more or less the same but some methods are specific to the element on which the map willbe rendered.
 
-- **property**: GeoJSON feature property to use as label (required)
-- **style**: SVG style of the labels (optional)
-- **uppercase**: boolean if true labels will be uppercase (optional)
+**Differences**
 
+### SVG
 
-### Polygons collection
+* You can have text along lines (road names for example)
+* The file is saved as a vector image
 
-```
-var myPolygons = svgMap.polygons(collection, style)
-```
+[Documentation for SVG maps](https://github.com/idris-maps/karto/blob/master/svg.md)
 
-- **collection**: a GeoJSON collection with *Polygon* and *MultiPolygon* features (required)
-- **style**: SVG style of the polygons (optional)
+### Canvas
 
-### Image markers
+* You can have a tiled background from a remote server
+* The file is saved as a raster image
 
-```
-var myMarkers = svgMap.markers(collection, imageUrl, style)
-```
-
-- **collection**: a GeoJSON collection with *Point* and *MultiPoint* features (required)
-- **imageUrl**: path to the image (required)
-- **style**: style of the markers (optional)
-
-### Point labels
-
-```
-var myLabels = svgMap.markers(collection, property, style)
-```
-
-- **collection**: a GeoJSON collection with *Point* and *MultiPoint* features (required)
-- **property**: feature property to use as label (required)
-- **style**: style of the labels (optional)
+[Documentation for Canvas maps](https://github.com/idris-maps/karto/blob/master/canvas.md)
 
 ## Utilities
 
-### getCollectionBbox()
+Some helpers that may be helpful using Karto.
+
+### .getCollectionBbox()
+
+To get the bounding box of a GeoJSON collection.
 
 ```
-var karto = require('karto')
 karto.getCollectionBbox(collection, function(bbox) { 
 	/*  
 		bbox as [min. longitude, min. latitude, max. longitude, max. latitude]
@@ -86,3 +80,20 @@ karto.getCollectionBbox(collection, function(bbox) {
 ```
 
 - **collection**: a GeoJSON collection
+
+### .getJSON()
+
+To load a GeoJSON file.
+
+```
+karto.getJSON(url, function(err, json) { 
+	if(err) { console.log(err) }
+	else {
+		/*
+			use your GeoJSON file
+		*/
+	}
+})
+```
+
+- **url**: the path to your GeoJSON
