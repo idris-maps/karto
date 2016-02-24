@@ -216,4 +216,5 @@ map.downloadButton()
 ```
 
 Load the page and click the button.
-```
+
+**This does not work if you use tiles from another server than the one that serves the page. You can still save the image by right-clicking the canvas and then ```Save image as...```**

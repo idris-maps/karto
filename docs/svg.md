@@ -35,7 +35,7 @@ var myPolygons = svgMap.polygons(collection, style)
 - **collection**: a GeoJSON collection with *Polygon* and *MultiPolygon* features (required)
 - **style**: SVG style of the polygons (optional)
 
-### .choropleth()
+## .choropleth()
 
 Polygons can also be colored depending on the value of one of its properties.
 
