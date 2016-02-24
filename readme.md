@@ -32,9 +32,7 @@ var karto = require('karto')
 
 #### To use directly in HTML
 
-**--------------------------- To do ---------------------------**
-
-Download the script [here]()
+Download the script [here](https://raw.githubusercontent.com/idris-maps/karto/master/dist/karto.min.json)
 
 And include it in the HTML:
 
