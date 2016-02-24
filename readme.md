@@ -12,7 +12,7 @@ There are a number of libraries that let you draw maps. The best being D3. Karto
 * The projection to use is Mercator
 * You will not need animation or interaction
 
-For all other use cases, D3 is what you are looking for.
+For all other use cases, [D3](https://d3js.org/) is what you are looking for.
 
 ## Usage
 
