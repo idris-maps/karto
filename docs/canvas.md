@@ -1,12 +1,18 @@
 # Canvas map
 
+In your HTML, you need to have a ```<div>``` element with a unique id where the map will be drawn
+
+```
+<div id="map"></div>
+```
+
 ## Initialize with karto.canvas()
 
 ```
 var map = karto.canvas(divId, width, height, bbox)
 ```
 
-- **divId**: unique id of the ```<div>``` element where the map should be
+- **divId**: unique id of the ```<div>```, 'map' for the element created above
 - **width** / **height**: of the canvas
 - **bbox**: bounding box of the map [min. longitude, min. latitude, max. longitude, max. latitude]
 

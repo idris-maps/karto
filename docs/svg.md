@@ -1,5 +1,11 @@
 # SVG map
 
+In your HTML, you need to have a ```<div>``` element with a unique id where the map will be drawn
+
+```
+<div id="map"></div>
+```
+
 ## Initialize with karto.svg()
 
 ```

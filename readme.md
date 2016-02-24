@@ -32,7 +32,7 @@ var karto = require('karto')
 
 #### To use directly in HTML
 
-Download the script [here](https://raw.githubusercontent.com/idris-maps/karto/master/dist/karto.min.js)
+Download the script [here](https://raw.githubusercontent.com/idris-maps/karto/master/dist/karto.min.jsit)
 
 And include it in the HTML:
 
@@ -43,7 +43,7 @@ And include it in the HTML:
 
 ## SVG or Canvas
 
-The APIs are more or less the same but some methods are specific to the element on which the map willbe rendered.
+The APIs are more or less the same but some methods are specific to the element on which the map will be rendered.
 
 **Differences**
 
@@ -52,18 +52,18 @@ The APIs are more or less the same but some methods are specific to the element 
 * You can have text along lines (road names for example)
 * The file is saved as a vector image
 
-[Documentation for SVG maps](https://github.com/idris-maps/karto/blob/master/svg.md)
+[Documentation for SVG maps](https://github.com/idris-maps/karto/blob/master/docs/svg.md)
 
 ### Canvas
 
 * You can have a tiled background from a remote server
 * The file is saved as a raster image
 
-[Documentation for Canvas maps](https://github.com/idris-maps/karto/blob/master/canvas.md)
+[Documentation for Canvas maps](https://github.com/idris-maps/karto/blob/master/docs/canvas.md)
 
 ## Utilities
 
-Some helpers that may be helpful using Karto.
+Some utilities that may be helpful using Karto.
 
 ### .getCollectionBbox()
 
