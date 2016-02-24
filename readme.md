@@ -1,6 +1,6 @@
 # Karto
 
-A library to draw static maps on ```<svg>``` or ```<canvas>``` elements.
+A library to draw static maps on svg or canvas elements.
 
 ## Why
 
