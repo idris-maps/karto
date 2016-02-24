@@ -18,7 +18,7 @@ var svgMap = karto.svg(divId, width, height, bbox)
 
 Layers will be drawn in the order they have been added.
 
-## Background color
+## .background()
 
 ```
 svgMap.background(color)
@@ -26,7 +26,7 @@ svgMap.background(color)
 
 - **color**: html color
 
-## Polygons
+## .polygons()
 
 ```
 var myPolygons = svgMap.polygons(collection, style)
@@ -35,7 +35,7 @@ var myPolygons = svgMap.polygons(collection, style)
 - **collection**: a GeoJSON collection with *Polygon* and *MultiPolygon* features (required)
 - **style**: SVG style of the polygons (optional)
 
-### Choropleth
+### .choropleth()
 
 Polygons can also be colored depending on the value of one of its properties.
 
@@ -45,7 +45,7 @@ var myChoropleth = svgMap.choropleth(collection, scaleOptions, style)
 
 - **collection**: a GeoJSON collection with *Polygon* and *MultiPolygon* features (required)
 - **scaleOptions**: see below (required)
-- **style**: SVG style of the polygons (optional)
+- **style**: SVG style of the polygons (optional) the *fill* declared here will be used for features where the property is undefined
 
 #### scaleOptions
 
@@ -55,7 +55,7 @@ An object with the following keys: ```prop```, ```type``` and ```range```. All a
 - **type**: can be "linear" or "threshold"
 - **range**: an array of HTML colors
 
-## Lines
+## .lines()
 
 ```
 var myLines = svgMap.lines(collection, style)
@@ -78,7 +78,7 @@ var myLinesLabels = myLines.addLabels(property, style, uppercase)
 
 Points can be represented either as markers or as labels
 
-### Image markers
+### .markers()
 
 ```
 var myMarkers = svgMap.markers(collection, imageUrl, style)
@@ -88,7 +88,7 @@ var myMarkers = svgMap.markers(collection, imageUrl, style)
 - **imageUrl**: path to the image (required)
 - **style**: style of the markers (optional)
 
-### Labels
+### .labels()
 
 ```
 var myLabels = svgMap.labels(collection, property, style, translate)
