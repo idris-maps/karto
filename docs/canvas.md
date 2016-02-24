@@ -58,6 +58,26 @@ To see the current style:
 console.log(myPolygons.style)
 ```
 
+## .choropleth()
+
+Polygons can also be colored depending on the value of one of its properties.
+
+```
+var myChoropleth = svgMap.choropleth(collection, scaleOptions, style)
+```
+
+- **collection**: a GeoJSON collection with *Polygon* and *MultiPolygon* features (required)
+- **scaleOptions**: see below (required)
+- **style**: style of the polygons (optional) the *fill* declared here will be used for features where the property is undefined
+
+### scaleOptions
+
+An object with the following keys: ```prop```, ```type``` and ```range```. All are required.
+
+- **prop**: the property which value will be used to color the polygons
+- **type**: can be "linear" or "threshold"
+- **range**: an array of HTML colors
+
 ## .lines()
 
 Add a line collection
