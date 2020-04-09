@@ -10,13 +10,17 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/d3-geo": "^1.11.1",
     "@types/geojson": "^7946.0.7",
     "@types/node": "^13.11.0",
+    "@types/ramda": "^0.27.3",
     "ts-node": "^8.8.2",
     "typescript": "^3.8.3"
   },
   "dependencies": {
     "ajv": "^6.12.0",
-    "htm": "^3.0.3"
+    "d3-geo": "^1.11.9",
+    "htm": "^3.0.3",
+    "ramda": "^0.27.0"
   }
 }
