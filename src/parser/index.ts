@@ -1,8 +1,9 @@
 import htm from '../../node_modules/htm/dist/htm'
+import { flatten } from 'ramda'
 import { isKartoElement, getKartoElementErrors } from './elements/index'
 
 const h = (type: string, props: { [key: string]: string }, ...children: any[]) => {
-  const element = { type, props: props || {}, children }
+  const element = { type, props: props || {}, children: flatten(children) }
   if (!isKartoElement(element)) {
     throw new Error([
       `ERROR: invalid karto element`,

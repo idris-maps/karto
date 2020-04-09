@@ -1,9 +1,11 @@
 import xml from 'xml-string'
 import { isKartoMap } from '../../parser/elements/map'
 import { isKartoPolygon } from '../../parser/elements/polygon'
+import { isKartoPolygons } from '../../parser/elements/polygons'
 import getProjection from '../utils/getProjection'
 import defaults from '../utils/defaults'
 import drawPolygon from './polygon'
+import drawPolygons from './polygons'
 
 export default (data: any) => {
   if (!isKartoMap(data)) {
@@ -19,6 +21,10 @@ export default (data: any) => {
   data.children.map(layer => {
     if (isKartoPolygon(layer)) {
       drawPolygon(svg, projection)(layer)
+      return
+    }
+    if (isKartoPolygons(layer)) {
+      drawPolygons(svg, projection)(layer)
       return
     }
   })
