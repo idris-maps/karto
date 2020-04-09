@@ -2,6 +2,8 @@ import Ajv from 'ajv'
 import { GeoProjection } from 'd3-geo'
 import { KartoPolygon, kartoPolygonSchema } from './polygon'
 import { KartoPolygons, kartoPolygonsSchema } from './polygons'
+import { KartoLine, kartoLineSchema } from './line'
+import { KartoLines, kartoLinesSchema } from './lines'
 
 export interface MapProps {
   width?: number
@@ -20,7 +22,12 @@ export const mapPropsSchema = {
 export interface KartoMap {
   type: 'map'
   props: MapProps
-  children: Array<KartoPolygon | KartoPolygons>
+  children: Array<
+    KartoPolygon
+    | KartoPolygons
+    | KartoLine
+    | KartoLines
+  >
 }
 
 export const kartoMapSchema = {
@@ -34,6 +41,8 @@ export const kartoMapSchema = {
         oneOf: [
           kartoPolygonSchema,
           kartoPolygonsSchema,
+          kartoLineSchema,
+          kartoLinesSchema,
         ],
       },
     },

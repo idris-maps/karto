@@ -1,11 +1,17 @@
 import xml from 'xml-string'
-import { isKartoMap } from '../../parser/elements/map'
-import { isKartoPolygon } from '../../parser/elements/polygon'
-import { isKartoPolygons } from '../../parser/elements/polygons'
 import getProjection from '../utils/getProjection'
 import defaults from '../utils/defaults'
+import { isKartoMap } from '../../parser/elements/map'
+
+import { isKartoPolygon } from '../../parser/elements/polygon'
+import { isKartoPolygons } from '../../parser/elements/polygons'
+import { isKartoLine } from '../../parser/elements/line'
+import { isKartoLines } from '../../parser/elements/lines'
+
 import drawPolygon from './polygon'
 import drawPolygons from './polygons'
+import drawLine from './line'
+import drawLines from './lines'
 
 export default (data: any) => {
   if (!isKartoMap(data)) {
@@ -25,6 +31,14 @@ export default (data: any) => {
     }
     if (isKartoPolygons(layer)) {
       drawPolygons(svg, projection)(layer)
+      return
+    }
+    if (isKartoLine(layer)) {
+      drawLine(svg, projection)(layer)
+      return
+    }
+    if (isKartoLines(layer)) {
+      drawLines(svg, projection)(layer)
       return
     }
   })
