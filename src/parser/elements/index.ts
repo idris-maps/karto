@@ -2,16 +2,22 @@ import Ajv from 'ajv'
 import { KartoMap, kartoMapSchema } from './map'
 import { KartoPolygon, kartoPolygonSchema } from './polygon'
 import { KartoPolygons, kartoPolygonsSchema } from './polygons'
+import { KartoLine, kartoLineSchema } from './line'
+import { KartoLines, kartoLinesSchema } from './lines'
 
 export type KartoElement = KartoMap
   | KartoPolygon
   | KartoPolygons
+  | KartoLine
+  | KartoLines
 
 export const kartoElementSchema = {
   oneOf: [
     kartoMapSchema,
     kartoPolygonSchema,
     kartoPolygonsSchema,
+    kartoLineSchema,
+    kartoLinesSchema
   ]
 }
 

@@ -6,7 +6,7 @@ export interface PolygonsProps extends PolygonStyle {
   geometries: PolygonGeom[]
 }
 
-export const polygonPropsSchema = {
+export const polygonsPropsSchema = {
   type: 'object',
   properties: {
     geometries: { type: 'array', items: polygonGeomSchema },
@@ -26,7 +26,7 @@ export const kartoPolygonsSchema = {
   type: 'object',
   properties: {
     type: { type: 'string', enum: ['polygons'] },
-    props: polygonPropsSchema,
+    props: polygonsPropsSchema,
   }
 }
 
