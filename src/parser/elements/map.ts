@@ -4,6 +4,8 @@ import { KartoPolygon, kartoPolygonSchema } from './polygon'
 import { KartoPolygons, kartoPolygonsSchema } from './polygons'
 import { KartoLine, kartoLineSchema } from './line'
 import { KartoLines, kartoLinesSchema } from './lines'
+import { KartoCircle, kartoCircleSchema } from './circle'
+import { KartoCircles, kartoCirclesSchema } from './circles'
 
 export interface MapProps {
   width?: number
@@ -27,6 +29,8 @@ export interface KartoMap {
     | KartoPolygons
     | KartoLine
     | KartoLines
+    | KartoCircle
+    | KartoCircles
   >
 }
 
@@ -43,6 +47,8 @@ export const kartoMapSchema = {
           kartoPolygonsSchema,
           kartoLineSchema,
           kartoLinesSchema,
+          kartoCircleSchema,
+          kartoCirclesSchema,
         ],
       },
     },

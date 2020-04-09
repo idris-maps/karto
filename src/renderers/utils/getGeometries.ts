@@ -6,7 +6,7 @@ import { isKartoPolygons } from '../../parser/elements/polygons'
 import { isKartoLine } from '../../parser/elements/line'
 import { isKartoLines } from '../../parser/elements/lines'
 
-const isFeature = (d: any): d is Feature => d.type && d.type === 'Feature'
+export const isFeature = (d: any): d is Feature => d.type && d.type === 'Feature'
 const getGeometryFromFeature = (d: Feature) => d.geometry
 const getGeometry = (d: Geometry) => d
 

@@ -1,4 +1,4 @@
-import { Feature, Polygon, MultiPolygon, LineString, MultiLineString } from 'geojson'
+import { Feature, Polygon, MultiPolygon, LineString, MultiLineString, Point, MultiPoint } from 'geojson'
 
 const featureSchema = (geometrySchema: any) => ({
   type: 'object',
@@ -37,5 +37,20 @@ export const lineGeomSchema = {
   oneOf: [
     lineGeometrySchema,
     featureSchema(lineGeometrySchema),
+  ],
+}
+
+export type PointGeom = Point | MultiPoint | Feature<Point> | Feature<MultiPoint>
+const pointGeometrySchema = {
+  type: 'object',
+  properties: {
+    type: { type: 'string', enum: ['Point', 'MultiPoint'] },
+  },
+  required: ['type']
+}
+export const pointGeomSchema = {
+  oneOf: [
+    pointGeometrySchema,
+    featureSchema(pointGeometrySchema),
   ],
 }

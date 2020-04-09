@@ -4,12 +4,16 @@ import { KartoPolygon, kartoPolygonSchema } from './polygon'
 import { KartoPolygons, kartoPolygonsSchema } from './polygons'
 import { KartoLine, kartoLineSchema } from './line'
 import { KartoLines, kartoLinesSchema } from './lines'
+import { KartoCircle, kartoCircleSchema } from './circle'
+import { KartoCircles, kartoCirclesSchema } from './circles'
 
 export type KartoElement = KartoMap
   | KartoPolygon
   | KartoPolygons
   | KartoLine
   | KartoLines
+  | KartoCircle
+  | KartoCircles
 
 export const kartoElementSchema = {
   oneOf: [
@@ -17,7 +21,9 @@ export const kartoElementSchema = {
     kartoPolygonSchema,
     kartoPolygonsSchema,
     kartoLineSchema,
-    kartoLinesSchema
+    kartoLinesSchema,
+    kartoCircleSchema,
+    kartoCirclesSchema,
   ]
 }
 

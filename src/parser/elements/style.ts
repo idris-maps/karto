@@ -91,3 +91,15 @@ export const polygonStyleSchema = {
     ...fillStyleSchema.properties,
   }
 }
+
+export interface CircleStyle extends StrokeStyle, FillStyle {
+  r: number
+}
+export const circleStyleSchema = {
+  type: 'object',
+  properties: {
+    r: { type: 'number' },
+    ...strokeStyleSchema.properties,
+    ...fillStyleSchema.properties,  
+  }
+}

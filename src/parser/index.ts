@@ -1,12 +1,14 @@
 import htm from '../../node_modules/htm/dist/htm'
 import { flatten } from 'ramda'
 import Ajv from 'ajv'
-import { isKartoElement, getKartoElementErrors } from './elements/index'
-import { isKartoMap, kartoMapSchema } from './elements/map'
-import { isKartoPolygon, kartoPolygonSchema } from './elements/polygon'
-import { isKartoPolygons, kartoPolygonsSchema } from './elements/polygons'
-import { isKartoLine, kartoLineSchema } from './elements/line'
-import { isKartoLines, kartoLinesSchema } from './elements/lines'
+import { isKartoElement } from './elements/index'
+import { kartoMapSchema } from './elements/map'
+import { kartoPolygonSchema } from './elements/polygon'
+import { kartoPolygonsSchema } from './elements/polygons'
+import { kartoLineSchema } from './elements/line'
+import { kartoLinesSchema } from './elements/lines'
+import { kartoCircleSchema } from './elements/circle'
+import { kartoCirclesSchema } from './elements/circles'
 
 const schemaByType: { [key: string]: any } = {
   'map': kartoMapSchema,
@@ -14,6 +16,8 @@ const schemaByType: { [key: string]: any } = {
   'polygons': kartoPolygonsSchema,
   'line': kartoLineSchema,
   'lines': kartoLinesSchema,
+  'circle': kartoCircleSchema,
+  'circles': kartoCirclesSchema,
 }
 
 const getErrors = (schema: any, element: any) => {
