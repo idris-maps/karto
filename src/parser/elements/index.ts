@@ -4,10 +4,11 @@ import { KartoPolygon, kartoPolygonSchema } from './polygon'
 import { KartoLine, kartoLineSchema } from './line'
 import { KartoCircle, kartoCircleSchema } from './circle'
 
-export type KartoElement = KartoMap
-  | KartoPolygon
+export type KartoLayer = KartoPolygon
   | KartoLine
   | KartoCircle
+
+export type KartoElement = KartoMap | KartoLayer
 
 export const kartoElementSchema = {
   oneOf: [
