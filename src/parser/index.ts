@@ -4,20 +4,14 @@ import Ajv from 'ajv'
 import { isKartoElement } from './elements/index'
 import { kartoMapSchema } from './elements/map'
 import { kartoPolygonSchema } from './elements/polygon'
-import { kartoPolygonsSchema } from './elements/polygons'
 import { kartoLineSchema } from './elements/line'
-import { kartoLinesSchema } from './elements/lines'
 import { kartoCircleSchema } from './elements/circle'
-import { kartoCirclesSchema } from './elements/circles'
 
 const schemaByType: { [key: string]: any } = {
   'map': kartoMapSchema,
   'polygon': kartoPolygonSchema,
-  'polygons': kartoPolygonsSchema,
   'line': kartoLineSchema,
-  'lines': kartoLinesSchema,
   'circle': kartoCircleSchema,
-  'circles': kartoCirclesSchema,
 }
 
 const getErrors = (schema: any, element: any) => {

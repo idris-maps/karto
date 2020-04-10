@@ -4,18 +4,12 @@ import defaults from '../utils/defaults'
 import { isKartoMap } from '../../parser/elements/map'
 
 import { isKartoPolygon } from '../../parser/elements/polygon'
-import { isKartoPolygons } from '../../parser/elements/polygons'
 import { isKartoLine } from '../../parser/elements/line'
-import { isKartoLines } from '../../parser/elements/lines'
 import { isKartoCircle } from '../../parser/elements/circle'
-import { isKartoCircles } from '../../parser/elements/circles'
 
 import drawPolygon from './polygon'
-import drawPolygons from './polygons'
 import drawLine from './line'
-import drawLines from './lines'
 import drawCircle from './circle'
-import drawCircles from './circles'
 
 export default (data: any) => {
   if (!isKartoMap(data)) {
@@ -33,24 +27,12 @@ export default (data: any) => {
       drawPolygon(svg, projection)(layer)
       return
     }
-    if (isKartoPolygons(layer)) {
-      drawPolygons(svg, projection)(layer)
-      return
-    }
     if (isKartoLine(layer)) {
       drawLine(svg, projection)(layer)
       return
     }
-    if (isKartoLines(layer)) {
-      drawLines(svg, projection)(layer)
-      return
-    }
     if (isKartoCircle(layer)) {
       drawCircle(svg, projection)(layer)
-      return
-    }
-    if (isKartoCircles(layer)) {
-      drawCircles(svg, projection)(layer)
       return
     }
   })
