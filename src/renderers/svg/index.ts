@@ -6,10 +6,12 @@ import { isKartoMap } from '../../parser/elements/map'
 import { isKartoPolygon } from '../../parser/elements/polygon'
 import { isKartoLine } from '../../parser/elements/line'
 import { isKartoCircle } from '../../parser/elements/circle'
+import { isKartoLabel } from '../../parser/elements/label'
 
 import drawPolygon from './polygon'
 import drawLine from './line'
 import drawCircle from './circle'
+import drawLabel from './label'
 
 export default (data: any) => {
   if (!isKartoMap(data)) {
@@ -33,6 +35,10 @@ export default (data: any) => {
     }
     if (isKartoCircle(layer)) {
       drawCircle(svg, projection)(layer)
+      return
+    }
+    if (isKartoLabel(layer)) {
+      drawLabel(svg, projection)(layer)
       return
     }
   })

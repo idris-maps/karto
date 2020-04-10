@@ -101,5 +101,21 @@ export const circleStyleSchema = {
     r: { type: 'number' },
     ...strokeStyleSchema.properties,
     ...fillStyleSchema.properties,  
-  }
+  },
+  required: ['r']
+}
+
+export interface LabelStyle extends StrokeStyle, FillStyle, TextStyle {
+  text: string
+  translate?: number[]
+}
+export const labelStyleSchema = {
+  type: 'object',
+  properties: {
+    text: { type: 'string' },
+    ...strokeStyleSchema.properties,
+    ...fillStyleSchema.properties,  
+    ...textStyleSchema.properties,
+  },
+  required: ['text']
 }

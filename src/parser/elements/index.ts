@@ -3,19 +3,26 @@ import { KartoMap, kartoMapSchema } from './map'
 import { KartoPolygon, kartoPolygonSchema } from './polygon'
 import { KartoLine, kartoLineSchema } from './line'
 import { KartoCircle, kartoCircleSchema } from './circle'
+import { KartoLabel, kartoLabelSchema } from './label'
 
 export type KartoLayer = KartoPolygon
   | KartoLine
   | KartoCircle
+  | KartoLabel
 
 export type KartoElement = KartoMap | KartoLayer
+
+export const kartoLayerSchemas = [
+  kartoPolygonSchema,
+  kartoLineSchema,
+  kartoCircleSchema,
+  kartoLabelSchema,
+]
 
 export const kartoElementSchema = {
   oneOf: [
     kartoMapSchema,
-    kartoPolygonSchema,
-    kartoLineSchema,
-    kartoCircleSchema,
+    ...kartoLayerSchemas,
   ]
 }
 
