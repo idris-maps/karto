@@ -43,8 +43,8 @@ const fixIfPoint = ([xMin, yMin, xMax, yMax]: BBox): BBox => {
     return [
       xMin - POINT_MARGIN,
       yMin - POINT_MARGIN,
-      xMax - POINT_MARGIN,
-      yMax - POINT_MARGIN,
+      xMax + POINT_MARGIN,
+      yMax + POINT_MARGIN,
     ]
   }
   return [xMin, yMin, xMax, yMax]

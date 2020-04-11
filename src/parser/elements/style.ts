@@ -119,3 +119,15 @@ export const labelStyleSchema = {
   },
   required: ['text']
 }
+
+export interface MarkerStyle extends StrokeStyle, FillStyle {
+  width?: number
+}
+export const markerStyleSchema = {
+  type: 'object',
+  properties: {
+    width: { type: 'number' },
+    ...strokeStyleSchema.properties,
+    ...fillStyleSchema.properties,  
+  }
+}
