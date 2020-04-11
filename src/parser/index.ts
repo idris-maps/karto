@@ -6,12 +6,18 @@ import { kartoMapSchema } from './elements/map'
 import { kartoPolygonSchema } from './elements/polygon'
 import { kartoLineSchema } from './elements/line'
 import { kartoCircleSchema } from './elements/circle'
+import { kartoLabelSchema } from './elements/label'
+import { kartoMarkerSchema } from './elements/marker'
+import { kartoTilesSchema } from './elements/tiles'
 
 const schemaByType: { [key: string]: any } = {
   'map': kartoMapSchema,
   'polygon': kartoPolygonSchema,
   'line': kartoLineSchema,
   'circle': kartoCircleSchema,
+  'label': kartoLabelSchema,
+  'marker': kartoMarkerSchema,
+  'tiles': kartoTilesSchema,
 }
 
 const getErrors = (schema: any, element: any) => {

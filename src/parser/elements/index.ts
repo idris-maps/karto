@@ -5,12 +5,14 @@ import { KartoLine, kartoLineSchema } from './line'
 import { KartoCircle, kartoCircleSchema } from './circle'
 import { KartoLabel, kartoLabelSchema } from './label'
 import { KartoMarker, kartoMarkerSchema } from './marker'
+import { KartoTiles, kartoTilesSchema } from './tiles'
 
 export type KartoLayer = KartoPolygon
   | KartoLine
   | KartoCircle
   | KartoLabel
   | KartoMarker
+  | KartoTiles
 
 export type KartoElement = KartoMap | KartoLayer
 
@@ -20,6 +22,7 @@ export const kartoLayerSchemas = [
   kartoCircleSchema,
   kartoLabelSchema,
   kartoMarkerSchema,
+  kartoTilesSchema,
 ]
 
 export const kartoElementSchema = {

@@ -131,3 +131,22 @@ export const markerStyleSchema = {
     ...fillStyleSchema.properties,  
   }
 }
+
+export interface TilesStyle {
+  attribution?: string
+  ext?: string
+  subdomains?: string
+  url: string
+}
+export const tilesStyleSchema = {
+  type: 'object',
+  properties: {
+    attribution: { type: 'string' },
+    ext: { type: 'string' },
+    subdomains: { type: 'string' },
+    url: { type: 'string' },
+  },
+  required: [
+    'url'
+  ]
+}
