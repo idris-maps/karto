@@ -13,6 +13,8 @@ import { isKartoTiles } from '../../parser/elements/tiles'
 
 import drawMarker from './marker'
 import drawCircle from './circle'
+import drawPolygon from './polygon'
+import drawLine from './line'
 
 export default (elementId: string, data: any) => {
   if (!isKartoMap(data)) {
@@ -25,9 +27,6 @@ export default (elementId: string, data: any) => {
 
   const map = Lmap(element).fitBounds(getBounds(data))
 
-  const x: CircleMarkerOptions = {}
-  circle([46.78, 6.64], {}).addTo(map)
-
   data.children.map(layer => {
     if (isKartoTiles(layer)) {
       tileLayer(layer.props.url, layer.props).addTo(map)
@@ -39,6 +38,15 @@ export default (elementId: string, data: any) => {
     }
     if (isKartoCircle(layer)) {
       drawCircle(map)(layer)
+      return
+    }
+    if (isKartoPolygon(layer)) {
+      drawPolygon(map)(layer)
+      return
+    }
+    if (isKartoLine(layer)) {
+      drawLine(map)(layer)
+      return
     }
   })
 }

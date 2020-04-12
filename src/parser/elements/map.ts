@@ -29,9 +29,11 @@ export const kartoMapSchema = {
     props: mapPropsSchema,
     children: {
       type: 'array',
+      /*
       items: {
         oneOf: kartoLayerSchemas,
       },
+      */
     },
   },
   required: ['type']
