@@ -9,14 +9,16 @@ import { isKartoLine } from '../../parser/elements/line'
 import { isKartoCircle } from '../../parser/elements/circle'
 import { isKartoLabel } from '../../parser/elements/label'
 import { isKartoMarker } from '../../parser/elements/marker'
+import { isKartoTiles } from '../../parser/elements/tiles'
 
 import drawPolygon from './polygon'
 import drawLine from './line'
 import drawCircle from './circle'
 import drawLabel from './label'
 import drawMarker from './marker'
+import drawTiles from './tiles'
 
-export default (data: any) => {
+export default async (data: any) => {
   if (!isKartoMap(data)) {
     throw new Error('Invalid karto definition')
   }
@@ -33,7 +35,9 @@ export default (data: any) => {
 
   addDefs(svg)
 
-  data.children.map(layer => {
+  const tileLayer = svg.child('g')
+
+  await Promise.all(data.children.map(async layer => {
     if (isKartoPolygon(layer)) {
       drawPolygon(svg, projection)(layer)
       return
@@ -54,7 +58,10 @@ export default (data: any) => {
       drawMarker(svg, projection)(layer)
       return
     }
-  })
+    if (isKartoTiles(layer)) {
+      await drawTiles(tileLayer, projection)(layer, [width, height])
+    }
+  }))
 
   return svg.outer()
 }

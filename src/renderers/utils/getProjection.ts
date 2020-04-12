@@ -5,8 +5,13 @@ import { pipe, map } from 'ramda'
 
 const POINT_MARGIN = 0.001
 
-const getGeometries = (map: KartoMap) =>
-  map.children.map(layer => layer.props.geometry)
+const hasGeometry = (d: Geometry | undefined): d is Geometry => d !== undefined
+
+const getGeometries = (map: KartoMap): Geometry[] =>
+  // @ts-ignore
+  map.children
+    .map(layer => layer.type === 'tiles' ? undefined : layer.props.geometry)
+    .filter(hasGeometry)
 
 const flat = <T>(arr: T[][]): T[] =>
   arr.reduce((r, c) => ([ ...r, ...c ]), [])
