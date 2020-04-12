@@ -2,3 +2,4 @@ node_modules
 .vscode
 try
 dist
+.cache

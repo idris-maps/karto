@@ -66,13 +66,12 @@ const bboxToGeom = ([xMin, yMin, xMax, yMax]: BBox): Polygon => ({
   ]]
 }) 
 
-const getBboxGeom = pipe(
+export const getBboxGeom = pipe(
   getGeometries,
   map(getPositions),
   flat,
   getBbox,
   fixIfPoint,
-  bboxToGeom
 )
 
 export default (map: KartoMap, width: number, height: number) => {
@@ -81,6 +80,6 @@ export default (map: KartoMap, width: number, height: number) => {
   }
   return geoMercator().fitExtent(
     [[0, 0], [width, height]],
-    getBboxGeom(map)
+    bboxToGeom(getBboxGeom(map))
   )
 }

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "ava",
-    "build": "tsc"
+    "build": "tsc",
+    "try:leaflet": "parcel try/leaflet/src/index.html --out-dir try/leaflet/dist"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +14,7 @@
   "devDependencies": {
     "@types/d3-geo": "^1.11.1",
     "@types/geojson": "^7946.0.7",
+    "@types/leaflet": "^1.5.12",
     "@types/node": "^13.11.0",
     "@types/ramda": "^0.27.3",
     "ava": "^3.6.0",
@@ -26,6 +28,7 @@
     "d3-tile": "^1.0.0",
     "decamelize": "^4.0.0",
     "htm": "^3.0.3",
+    "leaflet": "^1.6.0",
     "ramda": "^0.27.0",
     "xml-string": "^2.0.2"
   },
