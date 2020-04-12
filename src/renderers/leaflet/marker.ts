@@ -1,4 +1,4 @@
-import { Map, marker, Icon } from 'leaflet'
+import { Map, marker, icon } from 'leaflet'
 import xml from 'xml-string'
 import { marker as myMarker } from '../svg/defs'
 import { KartoMarker, MarkerProps } from '../../parser/elements/marker'
@@ -25,19 +25,18 @@ export default (map: Map) =>
   (layer: KartoMarker) => {
     const width = layer.props.width || 24
     const height = width * 1.5
-    const CustomIcon = Icon.extend({
-      iconSize: [width, height],
-      iconAnchor: [width / 2, height],
-    })
     const m = createMarker(layer.props)
-    // @ts-ignore
-    const icon = new CustomIcon({ iconUrl: `data:image/svg+xml,${m}` })
+    const markerIcon = icon({
+      iconUrl: `data:image/svg+xml,${m}`,
+      iconSize: [width, height],
+      iconAnchor: [width / 2, height / 36 * 32]
+    })
     if (layer.props.geometry.type === 'MultiPoint') {
       layer.props.geometry.coordinates.map(([x, y]) => {
-        marker([y, x], { icon }).addTo(map)
+        marker([y, x], { icon: markerIcon }).addTo(map)
       })
     } else {
       const [x, y] = layer.props.geometry.coordinates
-      marker([y, x], { icon }).addTo(map)
+      marker([y, x], { icon: markerIcon }).addTo(map)
     }
   }

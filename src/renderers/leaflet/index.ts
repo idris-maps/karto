@@ -1,4 +1,4 @@
-import { map as Lmap, tileLayer, marker, Icon } from 'leaflet'
+import { map as Lmap, tileLayer, circle, CircleMarkerOptions } from 'leaflet'
 import xml from 'xml-string'
 import { marker as myMarker } from '../svg/defs'
 import defaults from '../utils/defaults'
@@ -12,6 +12,7 @@ import { isKartoMarker } from '../../parser/elements/marker'
 import { isKartoTiles } from '../../parser/elements/tiles'
 
 import drawMarker from './marker'
+import drawCircle from './circle'
 
 export default (elementId: string, data: any) => {
   if (!isKartoMap(data)) {
@@ -23,6 +24,10 @@ export default (elementId: string, data: any) => {
   }
 
   const map = Lmap(element).fitBounds(getBounds(data))
+
+  const x: CircleMarkerOptions = {}
+  circle([46.78, 6.64], {}).addTo(map)
+
   data.children.map(layer => {
     if (isKartoTiles(layer)) {
       tileLayer(layer.props.url, layer.props).addTo(map)
@@ -31,6 +36,9 @@ export default (elementId: string, data: any) => {
     if (isKartoMarker(layer)) {
       drawMarker(map)(layer)
       return
+    }
+    if (isKartoCircle(layer)) {
+      drawCircle(map)(layer)
     }
   })
 }
