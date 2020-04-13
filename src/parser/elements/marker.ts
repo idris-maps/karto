@@ -1,6 +1,6 @@
-import Ajv from 'ajv'
 import { PointGeom, pointGeomSchema } from './geometries'
 import { MarkerStyle, markerStyleSchema } from './style'
+import { is, validate } from './check'
 
 export interface MarkerProps extends MarkerStyle {
   geometry: PointGeom
@@ -30,8 +30,6 @@ export const kartoMarkerSchema = {
   }
 }
 
-export const isKartoMarker = (d: any): d is KartoMarker => {
-  const ajv = new Ajv()
-  const isValid = ajv.validate(kartoMarkerSchema, d)
-  return Boolean(isValid)
-}
+export const isKartoMarker = is<KartoMarker>('marker')
+
+export const validateKartoMarker = validate(kartoMarkerSchema)

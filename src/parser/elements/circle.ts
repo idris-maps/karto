@@ -1,6 +1,6 @@
-import Ajv from 'ajv'
 import { PointGeom, pointGeomSchema } from './geometries'
 import { CircleStyle, circleStyleSchema } from './style'
+import { is, validate } from './check'
 
 export interface CircleProps extends CircleStyle {
   geometry: PointGeom
@@ -30,8 +30,6 @@ export const kartoCircleSchema = {
   }
 }
 
-export const isKartoCircle = (d: any): d is KartoCircle => {
-  const ajv = new Ajv()
-  const isValid = ajv.validate(kartoCircleSchema, d)
-  return Boolean(isValid)
-}
+export const isKartoCircle = is<KartoCircle>('circle')
+
+export const validateKartoCircle = validate(kartoCircleSchema)

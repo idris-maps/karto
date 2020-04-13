@@ -1,5 +1,5 @@
-import Ajv from 'ajv'
 import { TilesStyle, tilesStyleSchema } from './style'
+import { is, validate } from './check'
 
 export interface TilesProps extends TilesStyle {
 }
@@ -20,8 +20,6 @@ export const kartoTilesSchema = {
   }
 }
 
-export const isKartoTiles = (d: any): d is KartoTiles => {
-  const ajv = new Ajv()
-  const isValid = ajv.validate(kartoTilesSchema, d)
-  return Boolean(isValid)
-}
+export const isKartoTiles = is<KartoTiles>('tiles')
+
+export const validateKartoTiles = validate(kartoTilesSchema)

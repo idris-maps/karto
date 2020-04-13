@@ -1,11 +1,11 @@
-import Ajv from 'ajv'
-import { KartoMap, kartoMapSchema } from './map'
-import { KartoPolygon, kartoPolygonSchema } from './polygon'
-import { KartoLine, kartoLineSchema } from './line'
-import { KartoCircle, kartoCircleSchema } from './circle'
-import { KartoLabel, kartoLabelSchema } from './label'
-import { KartoMarker, kartoMarkerSchema } from './marker'
-import { KartoTiles, kartoTilesSchema } from './tiles'
+import { KartoMap, kartoMapSchema, isKartoMap } from './map'
+import { KartoPolygon, kartoPolygonSchema, isKartoPolygon } from './polygon'
+import { KartoLine, kartoLineSchema, isKartoLine } from './line'
+import { KartoCircle, kartoCircleSchema, isKartoCircle } from './circle'
+import { KartoLabel, kartoLabelSchema, isKartoLabel } from './label'
+import { KartoMarker, kartoMarkerSchema, isKartoMarker } from './marker'
+import { KartoTiles, kartoTilesSchema, isKartoTiles } from './tiles'
+import { validate } from './check'
 
 export type KartoLayer = KartoPolygon
   | KartoLine
@@ -32,14 +32,14 @@ export const kartoElementSchema = {
   ]
 }
 
-export const isKartoElement = (d: any): d is KartoElement => {
-  const ajv = new Ajv()
-  const isValid = ajv.validate(kartoElementSchema, d)
-  return Boolean(isValid) 
-}
+export const isKartoElement = (d: any): d is KartoElement =>
+  isKartoCircle(d)
+  || isKartoLabel(d)
+  || isKartoLine(d)
+  || isKartoMap(d)
+  || isKartoMarker(d)
+  || isKartoPolygon(d)
+  || isKartoTiles(d)
+  
 
-export const getKartoElementErrors = (d: any) => {
-  const ajv = new Ajv()
-  ajv.validate(kartoElementSchema, d)
-  return ajv.errors ? JSON.stringify(ajv.errors, null, 2) : ''
-}
+export const validateKartoElement = validate(kartoElementSchema)

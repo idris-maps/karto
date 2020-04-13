@@ -1,9 +1,6 @@
-import { map as Lmap, tileLayer, circle, CircleMarkerOptions } from 'leaflet'
-import xml from 'xml-string'
-import { marker as myMarker } from '../svg/defs'
-import defaults from '../utils/defaults'
+import { map as Lmap, tileLayer } from 'leaflet'
 import getBounds from '../utils/getBounds'
-import { isKartoMap } from '../../parser/elements/map'
+import { isKartoMap, validateKartoMap } from '../../parser/elements/map'
 import { isKartoPolygon } from '../../parser/elements/polygon'
 import { isKartoLine } from '../../parser/elements/line'
 import { isKartoCircle } from '../../parser/elements/circle'
@@ -15,9 +12,12 @@ import drawMarker from './marker'
 import drawCircle from './circle'
 import drawPolygon from './polygon'
 import drawLine from './line'
+import { KartoLayer } from '../../parser/elements'
 
 export default (elementId: string, data: any) => {
-  if (!isKartoMap(data)) {
+  const { isValid, errorText, errors } = validateKartoMap(data)
+
+  if (!isValid && !isKartoMap(data)) {
     throw new Error('Invalid karto definition')
   }
   const element = document ? document.getElementById(elementId) : undefined
@@ -27,7 +27,7 @@ export default (elementId: string, data: any) => {
 
   const map = Lmap(element).fitBounds(getBounds(data))
 
-  data.children.map(layer => {
+  data.children.map((layer: KartoLayer) => {
     if (isKartoTiles(layer)) {
       tileLayer(layer.props.url, layer.props).addTo(map)
       return

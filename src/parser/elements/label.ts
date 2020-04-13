@@ -1,6 +1,6 @@
-import Ajv from 'ajv'
 import { PointGeom, pointGeomSchema } from './geometries'
 import { LabelStyle, labelStyleSchema } from './style'
+import { is, validate } from './check'
 
 export interface LabelProps extends LabelStyle {
   geometry: PointGeom
@@ -30,8 +30,6 @@ export const kartoLabelSchema = {
   }
 }
 
-export const isKartoLabel = (d: any): d is KartoLabel => {
-  const ajv = new Ajv()
-  const isValid = ajv.validate(kartoLabelSchema, d)
-  return Boolean(isValid)
-}
+export const isKartoLabel = is<KartoLabel>('label')
+
+export const validateKartoLabel = validate(kartoLabelSchema)

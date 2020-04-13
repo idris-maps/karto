@@ -1,6 +1,6 @@
-import Ajv from 'ajv'
 import { LineGeom, lineGeomSchema } from './geometries'
 import { LineStyle, lineStyleSchema } from './style'
+import { is, validate } from './check'
 
 export interface LineProps extends LineStyle {
   geometry: LineGeom
@@ -30,8 +30,6 @@ export const kartoLineSchema = {
   }
 }
 
-export const isKartoLine = (d: any): d is KartoLine => {
-  const ajv = new Ajv()
-  const isValid = ajv.validate(kartoLineSchema, d)
-  return Boolean(isValid)
-}
+export const isKartoLine = is<KartoLine>('line')
+
+export const validateKartoLine = validate('line')

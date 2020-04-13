@@ -1,6 +1,6 @@
-import Ajv from 'ajv'
 import { PolygonGeom, polygonGeomSchema } from './geometries'
 import { PolygonStyle, polygonStyleSchema } from './style'
+import { is, validate } from './check'
 
 export interface PolygonProps extends PolygonStyle {
   geometry: PolygonGeom
@@ -30,8 +30,6 @@ export const kartoPolygonSchema = {
   }
 }
 
-export const isKartoPolygon = (d: any): d is KartoPolygon => {
-  const ajv = new Ajv()
-  const isValid = ajv.validate(kartoPolygonSchema, d)
-  return Boolean(isValid)
-}
+export const isKartoPolygon = is<KartoPolygon>('polygon')
+
+export const validateKartoPolygon = validate(kartoPolygonSchema)
