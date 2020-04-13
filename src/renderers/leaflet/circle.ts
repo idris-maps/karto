@@ -1,16 +1,6 @@
-import { CircleMarkerOptions, Map, circle } from 'leaflet'
-import { CircleStyle, StrokeLinejoin } from '../../parser/elements/style'
+import { Map, circle } from 'leaflet'
 import { KartoCircle } from '../../parser/elements/circle'
 import convertStyle from './style'
-
-const fixLineJoin = (d?: StrokeLinejoin): "round" | "inherit" | "bevel" | "miter" | undefined => {
-  // @ts-ignore
-  if (['round', 'bevel', 'miter'].includes(d)) {
-    // @ts-ignore
-    return d
-  }
-  return undefined
-}
 
 export default (map: Map) =>
   (layer: KartoCircle) => {

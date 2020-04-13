@@ -1,5 +1,6 @@
 import { map as Lmap, tileLayer } from 'leaflet'
 import getBounds from '../utils/getBounds'
+import { KartoLayer } from '../../parser/elements'
 import { isKartoMap, validateKartoMap } from '../../parser/elements/map'
 import { isKartoPolygon } from '../../parser/elements/polygon'
 import { isKartoLine } from '../../parser/elements/line'
@@ -12,7 +13,7 @@ import drawMarker from './marker'
 import drawCircle from './circle'
 import drawPolygon from './polygon'
 import drawLine from './line'
-import { KartoLayer } from '../../parser/elements'
+import drawLabel from './label'
 
 export default (elementId: string, data: any) => {
   const { isValid, errorText, errors } = validateKartoMap(data)
@@ -47,6 +48,9 @@ export default (elementId: string, data: any) => {
     if (isKartoLine(layer)) {
       drawLine(map)(layer)
       return
+    }
+    if (isKartoLabel(layer)) {
+      drawLabel(map)(layer)
     }
   })
 }
