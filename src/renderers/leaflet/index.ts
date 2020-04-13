@@ -1,7 +1,8 @@
 import { map as Lmap, tileLayer } from 'leaflet'
 import getBounds from '../utils/getBounds'
+import validate from '../../validate'
 import { KartoLayer } from '../../parser/elements'
-import { isKartoMap, validateKartoMap } from '../../parser/elements/map'
+import { isKartoMap } from '../../parser/elements/map'
 import { isKartoPolygon } from '../../parser/elements/polygon'
 import { isKartoLine } from '../../parser/elements/line'
 import { isKartoCircle } from '../../parser/elements/circle'
@@ -16,11 +17,12 @@ import drawLine from './line'
 import drawLabel from './label'
 
 export default (elementId: string, data: any) => {
-  const { isValid, errorText, errors } = validateKartoMap(data)
 
+  const { isValid, error } = validate(data)
   if (!isValid && !isKartoMap(data)) {
-    throw new Error('Invalid karto definition')
+    throw new Error(error)
   }
+
   const element = document ? document.getElementById(elementId) : undefined
   if (!element) {
     throw new Error(`Element "#${elementId}" does not exist`)

@@ -2,6 +2,7 @@ import xml from 'xml-string'
 import getProjection from '../utils/getProjection'
 import defaults from '../utils/defaults'
 import { isKartoMap } from '../../parser/elements/map'
+import validate from '../../validate'
 import addDefs from './defs'
 
 import { isKartoPolygon } from '../../parser/elements/polygon'
@@ -17,11 +18,15 @@ import drawCircle from './circle'
 import drawLabel from './label'
 import drawMarker from './marker'
 import drawTiles from './tiles'
+import { KartoLayer } from '../../parser/elements'
 
 export default async (data: any) => {
-  if (!isKartoMap(data)) {
-    throw new Error('Invalid karto definition')
+
+  const { isValid, error } = validate(data)
+  if (!isValid && !isKartoMap(data)) {
+    throw new Error(error)
   }
+
   const width = data.props.width || defaults.width
   const height = data.props.height || defaults.height
   const projection = getProjection(data, width, height)
@@ -37,7 +42,7 @@ export default async (data: any) => {
 
   const tileLayer = svg.child('g')
 
-  await Promise.all(data.children.map(async layer => {
+  await Promise.all(data.children.map(async (layer: KartoLayer) => {
     if (isKartoPolygon(layer)) {
       drawPolygon(svg, projection)(layer)
       return
