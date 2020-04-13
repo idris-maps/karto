@@ -8,7 +8,7 @@ import { validateKartoPolygon } from '../parser/elements/polygon'
 import { validateKartoTiles } from '../parser/elements/tiles'
 import { Validator } from '../parser/elements/check'
 
-interface Error {
+export interface Error {
   isValid: boolean
   error?: string
 }
