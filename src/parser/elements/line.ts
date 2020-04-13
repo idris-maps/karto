@@ -32,4 +32,4 @@ export const kartoLineSchema = {
 
 export const isKartoLine = is<KartoLine>('line')
 
-export const validateKartoLine = validate('line')
+export const validateKartoLine = validate(kartoLineSchema)
