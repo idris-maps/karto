@@ -15,8 +15,8 @@ import {
 } from '../../elements'
 
 import drawPolygon from './polygon'
-/*
 import drawLine from './line'
+/*
 import drawCircle from './circle'
 import drawLabel from './label'
 import drawMarker from './marker'
@@ -40,11 +40,10 @@ export default async (elementId: string, data: any) => {
     if (isKartoPolygon(layer)) {
       return drawPolygon(ctx, projection)(layer)
     }
-    /*
     if (isKartoLine(layer)) {
-      drawLine(svg, projection)(layer)
-      return
+      return drawLine(ctx, projection)(layer)
     }
+    /*
     if (isKartoCircle(layer)) {
       drawCircle(svg, projection)(layer)
       return
