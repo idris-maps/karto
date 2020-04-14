@@ -1,6 +1,6 @@
 import { GeoProjection } from 'd3-geo'
 import { KartoLayer, kartoLayerSchemas } from './index'
-import { is, validate } from './check'
+import { validate } from './check'
 
 export interface MapProps {
   width?: number
@@ -36,7 +36,5 @@ export const kartoMapSchema = {
   },
   required: ['type']
 }
-
-export const isKartoMap = is<KartoMap>('map')
 
 export const validateKartoMap = validate(kartoMapSchema)

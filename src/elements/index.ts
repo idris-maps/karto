@@ -1,19 +1,19 @@
-import { KartoMap, kartoMapSchema, isKartoMap as _isMap } from './map'
-import { KartoPolygon, kartoPolygonSchema, isKartoPolygon as _isPolygon } from './polygon'
-import { KartoLine, kartoLineSchema, isKartoLine as _isLine } from './line'
-import { KartoCircle, kartoCircleSchema, isKartoCircle as _isCircle } from './circle'
-import { KartoLabel, kartoLabelSchema, isKartoLabel as _isLabel } from './label'
-import { KartoMarker, kartoMarkerSchema, isKartoMarker as _isMarker } from './marker'
-import { KartoTiles, kartoTilesSchema, isKartoTiles as _isTiles } from './tiles'
-import { validate } from './check'
+import { KartoMap, kartoMapSchema } from './map'
+import { KartoPolygon, kartoPolygonSchema } from './polygon'
+import { KartoLine, kartoLineSchema } from './line'
+import { KartoCircle, kartoCircleSchema } from './circle'
+import { KartoLabel, kartoLabelSchema } from './label'
+import { KartoMarker, kartoMarkerSchema } from './marker'
+import { KartoTiles, kartoTilesSchema } from './tiles'
+import { validate, is } from './check'
 
-export const isKartoMap = _isMap
-export const isKartoPolygon = _isPolygon
-export const isKartoLine = _isLine
-export const isKartoCircle = _isCircle
-export const isKartoLabel = _isLabel
-export const isKartoMarker = _isMarker
-export const isKartoTiles = _isTiles
+export const isKartoMap = is<KartoMap>('map')
+export const isKartoPolygon = is<KartoPolygon>('polygon')
+export const isKartoLine = is<KartoLine>('line')
+export const isKartoCircle = is<KartoCircle>('circle')
+export const isKartoLabel = is<KartoLabel>('label')
+export const isKartoMarker = is<KartoMarker>('marker')
+export const isKartoTiles = is<KartoTiles>('tiles')
 
 export type KartoLayer = KartoPolygon
   | KartoLine

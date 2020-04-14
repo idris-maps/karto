@@ -1,6 +1,6 @@
 import { PolygonGeom, polygonGeomSchema } from './geometries'
 import { PolygonStyle, polygonStyleSchema } from './style'
-import { is, validate } from './check'
+import { validate } from './check'
 
 export interface PolygonProps extends PolygonStyle {
   geometry: PolygonGeom
@@ -29,7 +29,5 @@ export const kartoPolygonSchema = {
     props: polygonPropsSchema,
   }
 }
-
-export const isKartoPolygon = is<KartoPolygon>('polygon')
 
 export const validateKartoPolygon = validate(kartoPolygonSchema)

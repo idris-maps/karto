@@ -1,6 +1,6 @@
 import { PointGeom, pointGeomSchema } from './geometries'
 import { LabelStyle, labelStyleSchema } from './style'
-import { is, validate } from './check'
+import { validate } from './check'
 
 export interface LabelProps extends LabelStyle {
   geometry: PointGeom
@@ -29,7 +29,5 @@ export const kartoLabelSchema = {
     props: labelPropsSchema,
   }
 }
-
-export const isKartoLabel = is<KartoLabel>('label')
 
 export const validateKartoLabel = validate(kartoLabelSchema)

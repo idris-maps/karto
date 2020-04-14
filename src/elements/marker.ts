@@ -1,6 +1,6 @@
 import { PointGeom, pointGeomSchema } from './geometries'
 import { MarkerStyle, markerStyleSchema } from './style'
-import { is, validate } from './check'
+import { validate } from './check'
 
 export interface MarkerProps extends MarkerStyle {
   geometry: PointGeom
@@ -29,7 +29,5 @@ export const kartoMarkerSchema = {
     props: markerPropsSchema,
   }
 }
-
-export const isKartoMarker = is<KartoMarker>('marker')
 
 export const validateKartoMarker = validate(kartoMarkerSchema)

@@ -1,6 +1,6 @@
 import { LineGeom, lineGeomSchema } from './geometries'
 import { LineStyle, lineStyleSchema } from './style'
-import { is, validate } from './check'
+import { validate } from './check'
 
 export interface LineProps extends LineStyle {
   geometry: LineGeom
@@ -29,7 +29,5 @@ export const kartoLineSchema = {
     props: linePropsSchema,
   }
 }
-
-export const isKartoLine = is<KartoLine>('line')
 
 export const validateKartoLine = validate(kartoLineSchema)

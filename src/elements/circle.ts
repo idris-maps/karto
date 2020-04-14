@@ -1,6 +1,6 @@
 import { PointGeom, pointGeomSchema } from './geometries'
 import { CircleStyle, circleStyleSchema } from './style'
-import { is, validate } from './check'
+import { validate } from './check'
 
 export interface CircleProps extends CircleStyle {
   geometry: PointGeom
@@ -29,7 +29,5 @@ export const kartoCircleSchema = {
     props: circlePropsSchema,
   }
 }
-
-export const isKartoCircle = is<KartoCircle>('circle')
 
 export const validateKartoCircle = validate(kartoCircleSchema)
