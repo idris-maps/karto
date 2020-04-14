@@ -35,6 +35,13 @@ export default async (elementId: string, data: any) => {
 
   const ctx = getContext(elementId, width, height)
 
+  if (data.props.backgroundColor) {
+    ctx.save()
+    ctx.fillStyle = data.props.backgroundColor
+    ctx.fillRect(0, 0, width, height)
+    ctx.restore()
+  }
+
   const tiles: KartoTiles | undefined = data.children.find(isKartoTiles)
   if (tiles) {
     await drawTiles(ctx, projection)(tiles, [width, height])

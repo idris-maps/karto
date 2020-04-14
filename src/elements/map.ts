@@ -3,16 +3,18 @@ import { KartoLayer, kartoLayerSchemas } from './index'
 import { validate } from './check'
 
 export interface MapProps {
-  width?: number
+  backgroundColor?: string
   height?: number
   projection?: GeoProjection
+  width?: number
 }
 
 export const mapPropsSchema = {
   type: 'object',
   properties: {
-    width: { type: 'number' },
+    backgroundColor: { type: 'string' },
     height: { type: 'number' },
+    width: { type: 'number' },
   },
 }
 

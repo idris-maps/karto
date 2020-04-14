@@ -32,6 +32,10 @@ export default (elementId: string, data: any) => {
 
   const map = Lmap(element).fitBounds(getBounds(data))
 
+  if (data.props.backgroundColor) {
+    element.style.backgroundColor = data.props.backgroundColor
+  }
+
   data.children.map((layer: KartoLayer) => {
     if (isKartoTiles(layer)) {
       tileLayer(layer.props.url, layer.props).addTo(map)

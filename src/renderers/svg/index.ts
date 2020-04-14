@@ -42,6 +42,14 @@ export default async (data: any) => {
 
   addDefs(svg)
 
+  if (data.props.backgroundColor) {
+    svg.child('rect').attr({
+      fill: data.props.backgroundColor,
+      height,
+      width,
+    })
+  }
+
   const tileLayer = svg.child('g')
 
   await Promise.all(data.children.map(async (layer: KartoLayer) => {
