@@ -18,8 +18,8 @@ import drawPolygon from './polygon'
 import drawLine from './line'
 import drawCircle from './circle'
 import drawLabel from './label'
-/*
 import drawMarker from './marker'
+/*
 import drawTiles from './tiles'
 */
 
@@ -50,11 +50,10 @@ export default async (elementId: string, data: any) => {
     if (isKartoLabel(layer)) {
       return drawLabel(ctx, projection)(layer)
     }
-    /*
     if (isKartoMarker(layer)) {
-      drawMarker(svg, projection)(layer)
-      return
+      return drawMarker(ctx, projection)(layer)
     }
+    /*
     if (isKartoTiles(layer)) {
       await drawTiles(tileLayer, projection)(layer, [width, height])
     }
