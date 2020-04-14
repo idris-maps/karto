@@ -6,7 +6,10 @@
   "scripts": {
     "test": "ava",
     "build": "tsc",
-    "try:leaflet": "parcel try/leaflet/src/index.html --out-dir try/leaflet/dist"
+    "clear:cache": "rm -rf .cache",
+    "try:leaflet": "npm run clear:cache && parcel try/leaflet/src/index.html --out-dir try/leaflet/dist",
+    "try:svg": "ts-node try/svg/run > try/svg/test.svg",
+    "try:canvas": "npm run clear:cache && parcel try/canvas/src/index.html --out-dir try/canvas/dist"
   },
   "keywords": [],
   "author": "",
