@@ -33,11 +33,10 @@ export const setFillStyle = (ctx: CanvasRenderingContext2D, layer: FillLayer) =>
       ctx.fillStyle = style.fill || 'black'
     }
     if (style.opacity) {
-      if (style.fillOpacity) {
-        ctx.globalAlpha = style.fillOpacity
-      } else {
-        ctx.globalAlpha = style.opacity
-      }
+      ctx.globalAlpha = style.opacity
+    }
+    if (style.fillOpacity) {
+      ctx.globalAlpha = style.fillOpacity
     }
 
     draw(ctx)
@@ -72,11 +71,10 @@ export const setStrokeStyle = (ctx: CanvasRenderingContext2D, layer: StrokeLayer
     const style = getStrokeStyle(layer)
 
     if (style.opacity) {
-      if (style.strokeOpacity) {
-        ctx.globalAlpha = style.strokeOpacity
-      } else {
-        ctx.globalAlpha = style.opacity
-      }
+      ctx.globalAlpha = style.opacity
+    }
+    if (style.strokeOpacity) {
+      ctx.globalAlpha = style.strokeOpacity
     }
     if (style.stroke) {
       ctx.strokeStyle = style.stroke

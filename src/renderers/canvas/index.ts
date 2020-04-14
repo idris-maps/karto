@@ -16,8 +16,8 @@ import {
 
 import drawPolygon from './polygon'
 import drawLine from './line'
-/*
 import drawCircle from './circle'
+/*
 import drawLabel from './label'
 import drawMarker from './marker'
 import drawTiles from './tiles'
@@ -43,11 +43,11 @@ export default async (elementId: string, data: any) => {
     if (isKartoLine(layer)) {
       return drawLine(ctx, projection)(layer)
     }
-    /*
+
     if (isKartoCircle(layer)) {
-      drawCircle(svg, projection)(layer)
-      return
+      return drawCircle(ctx, projection)(layer)
     }
+    /*
     if (isKartoLabel(layer)) {
       drawLabel(svg, projection)(layer)
       return
