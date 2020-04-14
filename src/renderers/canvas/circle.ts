@@ -1,4 +1,4 @@
-import { GeoProjection, geoPath } from 'd3-geo'
+import { GeoProjection } from 'd3-geo'
 import { KartoCircle } from '../../elements/circle'
 import {
   setFillStyle,
