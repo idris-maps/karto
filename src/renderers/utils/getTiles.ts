@@ -53,7 +53,7 @@ export const getTileUrl = ({ url, subdomains, ext }: UrlParts) =>
       .split('{r}').join('')
   }
 
-interface TileUrl extends TilePosition {
+export interface TileUrl extends TilePosition {
   url: string
 }
 export const getTileUrls = (

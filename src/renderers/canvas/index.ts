@@ -19,9 +19,8 @@ import drawLine from './line'
 import drawCircle from './circle'
 import drawLabel from './label'
 import drawMarker from './marker'
-/*
 import drawTiles from './tiles'
-*/
+import { KartoTiles } from '../../elements/tiles'
 
 export default async (elementId: string, data: any) => {
 
@@ -36,7 +35,13 @@ export default async (elementId: string, data: any) => {
 
   const ctx = getContext(elementId, width, height)
 
-  await Promise.all(data.children.map(async (layer: KartoLayer) => {
+  const tiles: KartoTiles | undefined = data.children.find(isKartoTiles)
+  if (tiles) {
+    await drawTiles(ctx, projection)(tiles, [width, height])
+  }
+
+  const rest: KartoLayer[] = data.children.filter((d: KartoLayer) => !isKartoTiles(d))
+  rest.map((layer: KartoLayer) => {
     if (isKartoPolygon(layer)) {
       return drawPolygon(ctx, projection)(layer)
     }
@@ -53,10 +58,7 @@ export default async (elementId: string, data: any) => {
     if (isKartoMarker(layer)) {
       return drawMarker(ctx, projection)(layer)
     }
-    /*
-    if (isKartoTiles(layer)) {
-      await drawTiles(tileLayer, projection)(layer, [width, height])
-    }
-    */
-  }))
+    return
+  })
+
 }

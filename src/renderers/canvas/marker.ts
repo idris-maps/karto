@@ -49,7 +49,6 @@ export default (ctx: CanvasRenderingContext2D, projection: GeoProjection) =>
       const point = geometry.coordinates
       const pt = projection([point[0], point[1]])
       if (!pt) { return }
-      console.log(pt)
       drawMarker(ctx, layer, pt[0], pt[1])
       return
 
