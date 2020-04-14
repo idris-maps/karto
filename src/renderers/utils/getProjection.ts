@@ -1,5 +1,5 @@
 import { geoMercator } from 'd3-geo'
-import { KartoMap } from '../../parser/elements/map'
+import { KartoMap } from '../../elements/map'
 import { Geometry, Position, BBox, Polygon } from 'geojson'
 import { pipe, map } from 'ramda'
 

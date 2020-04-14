@@ -1,5 +1,5 @@
 import { Map, divIcon, marker } from 'leaflet'
-import { KartoLabel } from '../../parser/elements/label'
+import { KartoLabel } from '../../elements/label'
 import getStyle from '../utils/getStyle'
 import './label.css'
 

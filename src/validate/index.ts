@@ -1,12 +1,12 @@
 import { path } from 'ramda'
-import { validateKartoMap } from '../parser/elements/map'
-import { validateKartoCircle } from '../parser/elements/circle'
-import { validateKartoLabel } from '../parser/elements/label'
-import { validateKartoLine } from '../parser/elements/line'
-import { validateKartoMarker } from '../parser/elements/marker'
-import { validateKartoPolygon } from '../parser/elements/polygon'
-import { validateKartoTiles } from '../parser/elements/tiles'
-import { Validator } from '../parser/elements/check'
+import { validateKartoMap } from '../elements/map'
+import { validateKartoCircle } from '../elements/circle'
+import { validateKartoLabel } from '../elements/label'
+import { validateKartoLine } from '../elements/line'
+import { validateKartoMarker } from '../elements/marker'
+import { validateKartoPolygon } from '../elements/polygon'
+import { validateKartoTiles } from '../elements/tiles'
+import { Validator } from '../elements/check'
 
 export interface Error {
   isValid: boolean

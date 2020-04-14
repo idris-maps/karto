@@ -1,4 +1,4 @@
-import { KartoMap, kartoMapSchema, isKartoMap } from './map'
+import { KartoMap, kartoMapSchema, isKartoMap as _isMap } from './map'
 import { KartoPolygon, kartoPolygonSchema, isKartoPolygon as _isPolygon } from './polygon'
 import { KartoLine, kartoLineSchema, isKartoLine as _isLine } from './line'
 import { KartoCircle, kartoCircleSchema, isKartoCircle as _isCircle } from './circle'
@@ -7,6 +7,7 @@ import { KartoMarker, kartoMarkerSchema, isKartoMarker as _isMarker } from './ma
 import { KartoTiles, kartoTilesSchema, isKartoTiles as _isTiles } from './tiles'
 import { validate } from './check'
 
+export const isKartoMap = _isMap
 export const isKartoPolygon = _isPolygon
 export const isKartoLine = _isLine
 export const isKartoCircle = _isCircle

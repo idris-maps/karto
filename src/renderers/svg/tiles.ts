@@ -1,6 +1,6 @@
 import { GeoProjection } from 'd3-geo'
 import Tag from 'xml-string/dist/Tag'
-import { KartoTiles } from '../../parser/elements/tiles'
+import { KartoTiles } from '../../elements/tiles'
 import getTiles from '../utils/getTiles'
 
 export default (svg: Tag, projection: GeoProjection) =>

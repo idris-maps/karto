@@ -1,5 +1,5 @@
 import { Map, geoJSON } from 'leaflet'
-import { KartoLine } from '../../parser/elements/line'
+import { KartoLine } from '../../elements/line'
 import convertStyle from './style'
 
 export default (map: Map) =>

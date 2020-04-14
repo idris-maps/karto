@@ -1,5 +1,5 @@
 import { Map, circle } from 'leaflet'
-import { KartoCircle } from '../../parser/elements/circle'
+import { KartoCircle } from '../../elements/circle'
 import convertStyle from './style'
 
 export default (map: Map) =>

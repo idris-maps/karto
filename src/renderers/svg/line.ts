@@ -1,6 +1,6 @@
 import { geoPath, GeoProjection } from 'd3-geo'
 import Tag from 'xml-string/dist/Tag'
-import { KartoLine } from '../../parser/elements/line'
+import { KartoLine } from '../../elements/line'
 import getStyle from '../utils/getStyle'
 
 export default (svg: Tag, projection: GeoProjection) =>

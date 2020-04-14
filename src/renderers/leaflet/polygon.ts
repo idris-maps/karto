@@ -1,5 +1,5 @@
 import { Map, geoJSON } from 'leaflet'
-import { KartoPolygon } from '../../parser/elements/polygon'
+import { KartoPolygon } from '../../elements/polygon'
 import convertStyle from './style'
 
 export default (map: Map) =>

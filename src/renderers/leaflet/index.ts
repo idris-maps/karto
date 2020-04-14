@@ -1,14 +1,16 @@
 import { map as Lmap, tileLayer } from 'leaflet'
 import getBounds from '../utils/getBounds'
 import validate from '../../validate'
-import { KartoLayer } from '../../parser/elements'
-import { isKartoMap } from '../../parser/elements/map'
-import { isKartoPolygon } from '../../parser/elements/polygon'
-import { isKartoLine } from '../../parser/elements/line'
-import { isKartoCircle } from '../../parser/elements/circle'
-import { isKartoLabel } from '../../parser/elements/label'
-import { isKartoMarker } from '../../parser/elements/marker'
-import { isKartoTiles } from '../../parser/elements/tiles'
+import {
+  KartoLayer,
+  isKartoMap,
+  isKartoCircle,
+  isKartoLabel,
+  isKartoLine,
+  isKartoMarker,
+  isKartoPolygon,
+  isKartoTiles
+} from '../../elements'
 
 import drawMarker from './marker'
 import drawCircle from './circle'

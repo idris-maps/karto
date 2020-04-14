@@ -1,6 +1,6 @@
 import { GeoProjection } from 'd3-geo'
 import Tag from 'xml-string/dist/Tag'
-import { KartoMarker } from '../../parser/elements/marker'
+import { KartoMarker } from '../../elements/marker'
 import getStyle from '../utils/getStyle'
 
 export default (svg: Tag, projection: GeoProjection) =>

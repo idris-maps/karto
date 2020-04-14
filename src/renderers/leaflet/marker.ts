@@ -1,7 +1,7 @@
 import { Map, marker, icon } from 'leaflet'
 import xml from 'xml-string'
 import { marker as myMarker } from '../svg/defs'
-import { KartoMarker, MarkerProps } from '../../parser/elements/marker'
+import { KartoMarker, MarkerProps } from '../../elements/marker'
 import getStyle from '../utils/getStyle'
 
 const createMarker = (props: MarkerProps) => {

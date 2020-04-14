@@ -1,4 +1,4 @@
-import { KartoMap } from '../../parser/elements/map'
+import { KartoMap } from '../../elements/map'
 import { getBboxGeom } from './getProjection'
 import { LatLngBoundsExpression } from 'leaflet'
 

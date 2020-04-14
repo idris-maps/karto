@@ -1,6 +1,6 @@
 import { GeoProjection } from 'd3-geo'
 import Tag from 'xml-string/dist/Tag'
-import { KartoCircle } from '../../parser/elements/circle'
+import { KartoCircle } from '../../elements/circle'
 import getStyle from '../utils/getStyle'
 
 export default (svg: Tag, projection: GeoProjection) =>

@@ -1,5 +1,5 @@
 import { PathOptions } from 'leaflet'
-import { StrokeStyle, FillStyle, StrokeLinejoin } from '../../parser/elements/style'
+import { StrokeStyle, FillStyle, StrokeLinejoin } from '../../elements/style'
 import { isNil } from 'ramda'
 
 const fixLineJoin = (d?: StrokeLinejoin): "round" | "inherit" | "bevel" | "miter" | undefined => {
