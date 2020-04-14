@@ -1,0 +1,19 @@
+{
+  "name": "karto",
+  "version": "2.2.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "browser": "browserify create-browser.js -o dist/karto.js",
+    "mini": "minify --output dist/karto.min.js dist/karto.js"
+  },
+  "author": "idris-maps.com",
+  "license": "GPLv2.0",
+  "dependencies": {
+    "d3-geo": "0.0.0",
+    "d3-scale": "^0.6.2",
+    "idris-geojson-bbox": "^1.1.0",
+    "tilebelt": "^1.0.1"
+  }
+}
