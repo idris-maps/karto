@@ -32,6 +32,11 @@ const getPositions = (geometry: Geometry): Position[] => {
   return []
 }
 
+const fixIfNoPositions = (positions: Position[]): Position[] =>
+  positions.length === 0
+    ? [[-180, -85],[180, 85]]
+    : positions
+
 const getBbox = (positions: Position[]): BBox => {
   const start: BBox = [Infinity, Infinity, -Infinity, -Infinity]
   const reducer = ([xMin, yMin, xMax, yMax]: BBox, [x, y]: Position): BBox => ([
@@ -70,6 +75,7 @@ export const getBboxGeom = pipe(
   getGeometries,
   map(getPositions),
   flat,
+  fixIfNoPositions,
   getBbox,
   fixIfPoint,
 )

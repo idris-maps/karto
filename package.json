@@ -2,10 +2,11 @@
   "name": "karto",
   "version": "3.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "ava",
-    "build": "tsc",
+    "build": "tsc && cp src/renderers/leaflet/label.css dist/renderers/leaflet/label.css",
     "clear:cache": "rm -rf .cache",
     "lint": "eslint . --ext .ts --fix"
   },
