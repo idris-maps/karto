@@ -1,4 +1,4 @@
-import htm from '../../node_modules/htm/dist/htm'
+import htm from 'htm'
 import { flatten } from 'ramda'
 import { isKartoElement, KartoElement } from '../elements'
 
