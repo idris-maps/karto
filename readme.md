@@ -2,9 +2,9 @@
 
 Define your maps once and render to:
 
-* an `<svg>` file
-* an HTML `<canvas>`
-* a [leaflet](https://leafletjs.com/) map
+* [an `<svg>` string](https://github.com/idris-maps/karto#rendersvgstring)
+* [an HTML `<canvas>`](https://github.com/idris-maps/karto#rendertocanvas)
+* [a [leaflet](https://leafletjs.com/) map](https://github.com/idris-maps/karto#rendertoleaflet)
 
 ## Usage
 
@@ -47,37 +47,37 @@ const map = karto`
 **Attributes**
 
 * `geometry` is a [GeoJSON geometry](https://en.wikipedia.org/wiki/GeoJSON#Geometries) of type `Polygon` or `MultiPolygon`. REQUIRED
-* all stroke attributes
-* all fill attributes
+* all [stroke attributes](https://github.com/idris-maps/karto#stroke-attributes)
+* all [fill attributes](https://github.com/idris-maps/karto#fill-attributes)
 
 #### `<line>`
 
 **Attributes**
 
 * `geometry` is a [GeoJSON geometry](https://en.wikipedia.org/wiki/GeoJSON#Geometries) of type `LineString` or `MultiLineString`. REQUIRED
-* all stroke attributes
+* all [stroke attributes](https://github.com/idris-maps/karto#stroke-attributes)
 
 #### `<marker>`
 
 * `geometry` is a [GeoJSON geometry](https://en.wikipedia.org/wiki/GeoJSON#Geometries) of type `Point` or `MultiPoint`. REQUIRED
-* all stroke attributes
-* all fill attributes
+* all [stroke attributes](https://github.com/idris-maps/karto#stroke-attributes)
+* all [fill attributes](https://github.com/idris-maps/karto#fill-attributes)
 
 #### `<circle>`
 
 * `geometry` is a [GeoJSON geometry](https://en.wikipedia.org/wiki/GeoJSON#Geometries) of type `Point` or `MultiPoint`. REQUIRED
 * `r` is a `number`. It is the radius of the circle. REQUIRED
-* all stroke attributes
-* all fill attributes
+* all [stroke attributes](https://github.com/idris-maps/karto#stroke-attributes)
+* all [fill attributes](https://github.com/idris-maps/karto#fill-attributes)
 
 #### `<label>`
 
 * `geometry` is a [GeoJSON geometry](https://en.wikipedia.org/wiki/GeoJSON#Geometries) of type `Point` or `MultiPoint`. REQUIRED
 * `text` is a `string`. The content of the label. REQUIRED
 * `translate` is an array of two `number`s.
-* all stroke attributes
-* all fill attributes
-* all text attributes
+* all [stroke attributes](https://github.com/idris-maps/karto#stroke-attributes)
+* all [fill attributes](https://github.com/idris-maps/karto#fill-attributes)
+* all [text attributes](https://github.com/idris-maps/karto#text-attributes)
 
 #### `<tiles>`
 
