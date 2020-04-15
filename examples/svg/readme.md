@@ -2,7 +2,7 @@
 
 An example of a `karto` map rendered to an SVG file.
 
-[See the result](https://github.com/idris-maps/karto/blob/master/examples/svg/map.svg)
+![Map of Africa](https://raw.githubusercontent.com/idris-maps/karto/master/examples/svg/map.svg)
 
 ## Try it
 
