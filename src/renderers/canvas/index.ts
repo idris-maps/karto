@@ -22,7 +22,7 @@ import drawMarker from './marker'
 import drawTiles from './tiles'
 import { KartoTiles } from '../../elements/tiles'
 
-export default async (elementId: string, data: any) => {
+export default async (elementId: string, data: any): Promise<void> => {
 
   const { isValid, error } = validate(data)
   if (!isValid && !isKartoMap(data)) {

@@ -1,8 +1,8 @@
 import htm from '../../node_modules/htm/dist/htm'
 import { flatten } from 'ramda'
-import { isKartoElement } from '../elements'
+import { isKartoElement, KartoElement } from '../elements'
 
-const h = (type: string, props: { [key: string]: string }, ...children: any[]) => {
+const h = (type: string, props: { [key: string]: string }, ...children: any[]): KartoElement => {
   const element = { type, props: props || {}, children: flatten(children) }
   if (!isKartoElement(element)) {
     throw new Error(`Type "${type}" is invalid`)

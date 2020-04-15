@@ -1,4 +1,4 @@
-export default (elementId: string, width: number, height: number) => {
+export default (elementId: string, width: number, height: number): CanvasRenderingContext2D => {
   if (!window || !document) {
     throw Error('needs a browser context')
   }
