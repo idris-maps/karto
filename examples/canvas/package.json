@@ -1,0 +1,24 @@
+{
+  "name": "karto-try-3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "data": "curl https://unpkg.com/visionscarto-world-atlas@0.0.6/world/110m_land.geojson > src/land.json",
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "d3-geo": "^1.11.9",
+    "karto": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/d3-geo": "^1.11.1",
+    "parcel": "^1.12.4",
+    "typescript": "^3.8.3"
+  }
+}
