@@ -31,6 +31,11 @@ const map = karto`
 `
 
 renderSvgString(map)
-  .then(console.log)
+  .then(svg =>
+    console.log(
+      `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+      ${svg}`
+    )
+  )
 
 
