@@ -132,7 +132,7 @@ renderSvgString(map)
 
 ### `renderToCanvas`
 
-Takes to arguments:
+Takes two arguments:
 
 * The `id` of an existing `<div>` to which the canvas will be added
 * The map definition
@@ -150,7 +150,7 @@ renderToCanvas('divId', map)
 
 ### `renderToLeaflet`
 
-Takes to arguments:
+Takes two arguments:
 
 * The `id` of an existing `<div>` to which the map will be added
 * The map definition
