@@ -3,3 +3,5 @@ node_modules
 try
 dist
 .cache
+**/dist
+**/.cache

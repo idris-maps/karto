@@ -4,7 +4,7 @@ Define your maps once and render to:
 
 * [an `<svg>` string](https://github.com/idris-maps/karto#rendersvgstring)
 * [an HTML `<canvas>`](https://github.com/idris-maps/karto#rendertocanvas)
-* [a [leaflet](https://leafletjs.com/) map](https://github.com/idris-maps/karto#rendertoleaflet)
+* [a leaflet map](https://github.com/idris-maps/karto#rendertoleaflet)
 
 ## Usage
 
@@ -22,7 +22,7 @@ import lineGeometry from './line.json'
 const map = karto`
   <map>
     <polygon geometry=${polygonGeometry} fill="blue" stroke="lightblue" />
-    <line geometry=${line} stroke="red" strokeWidth=${3} strokeDasharray=${[10, 2]} />
+    <line geometry=${lineGeometry} stroke="red" strokeWidth=${3} strokeDasharray=${[10, 2]} />
   </map>
 `
 ```

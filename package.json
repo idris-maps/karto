@@ -11,7 +11,7 @@
     "lint": "eslint . --ext .ts --fix",
     "prepublish": "npm run build"
   },
-  "keywords": [],
+  "keywords": ["map", "cartography"],
   "author": "",
   "license": "ISC",
   "devDependencies": {

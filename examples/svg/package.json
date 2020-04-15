@@ -1,0 +1,19 @@
+{
+  "name": "karto-svg-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "map.js",
+  "scripts": {
+    "data": "./prepareData.sh",
+    "build": "node map.js > map.svg"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ndjson-cli": "^0.3.1"
+  },
+  "dependencies": {
+    "karto": "^3.0.1"
+  }
+}
