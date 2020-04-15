@@ -1,0 +1,22 @@
+{
+  "name": "karto-leaflet-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "data": "./prepareData.sh",
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ndjson-cli": "^0.3.1",
+    "parcel": "^1.12.4"
+  },
+  "dependencies": {
+    "karto": "^3.0.1"
+  }
+}
