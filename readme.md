@@ -2,9 +2,9 @@
 
 Define your maps once and render to:
 
-* [an `<svg>` string](https://github.com/idris-maps/karto#rendersvgstring)
-* [an HTML `<canvas>`](https://github.com/idris-maps/karto#rendertocanvas)
-* [a leaflet map](https://github.com/idris-maps/karto#rendertoleaflet)
+* [an `<svg>` string](https://github.com/idris-maps/karto#rendersvgstring) - [Example](examples/svg)
+* [an HTML `<canvas>`](https://github.com/idris-maps/karto#rendertocanvas) - [Example](examples/canvas)
+* [a leaflet map](https://github.com/idris-maps/karto#rendertoleaflet) - [Example](examples/leaflet)
 
 ## Usage
 
