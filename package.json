@@ -8,7 +8,8 @@
     "test": "ava",
     "build": "tsc && cp src/renderers/leaflet/label.css dist/renderers/leaflet/label.css",
     "clear:cache": "rm -rf .cache",
-    "lint": "eslint . --ext .ts --fix"
+    "lint": "eslint . --ext .ts --fix",
+    "prepublish": "npm run build"
   },
   "keywords": [],
   "author": "",
