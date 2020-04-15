@@ -66,6 +66,7 @@
   "exclude": [
     "try/**/*",
     "test/**/*",
-    "dist/**/*"
+    "dist/**/*",
+    "examples/**/*"
   ]
 }
