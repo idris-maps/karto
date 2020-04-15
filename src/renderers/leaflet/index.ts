@@ -1,4 +1,4 @@
-import { map as Lmap, tileLayer } from 'leaflet'
+import { map as _map, tileLayer } from 'leaflet'
 import getBounds from '../utils/getBounds'
 import validate from '../../validate'
 import {
@@ -30,7 +30,7 @@ export default (elementId: string, data: any) => {
     throw new Error(`Element "#${elementId}" does not exist`)
   }
 
-  const map = Lmap(element).fitBounds(getBounds(data))
+  const map = _map(element).fitBounds(getBounds(data))
 
   if (data.props.backgroundColor) {
     element.style.backgroundColor = data.props.backgroundColor
