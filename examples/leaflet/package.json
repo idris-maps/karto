@@ -14,7 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "ndjson-cli": "^0.3.1",
-    "parcel": "^1.12.4"
+    "parcel": "^2.8.2"
   },
   "dependencies": {
     "karto": "^3.0.1"
